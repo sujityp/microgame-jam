@@ -1,0 +1,131 @@
+[gd_scene load_steps=16 format=3 uid="uid://ddhoio73023ba"]
+
+[ext_resource type="Script" path="res://scenes/microgame_base/bomb_timer/bomb_timer.gd" id="1_8bajo"]
+[ext_resource type="Texture2D" uid="uid://cg8dqmgk5ksf5" path="res://scenes/microgame_base/bomb_timer/sprites/bomb_explode.png" id="2_6p0l4"]
+[ext_resource type="Texture2D" uid="uid://ck805bj7jdo6a" path="res://scenes/microgame_base/bomb_timer/sprites/bomb_line.png" id="3_h7300"]
+[ext_resource type="Texture2D" uid="uid://cjxwc280obhyy" path="res://scenes/microgame_base/bomb_timer/sprites/bomb_head1.png" id="4_jbd2q"]
+[ext_resource type="Texture2D" uid="uid://xhwg8ugymq6g" path="res://scenes/microgame_base/bomb_timer/sprites/bomb_head2.png" id="5_n0b7m"]
+[ext_resource type="Texture2D" uid="uid://dodvapjg3g4pl" path="res://scenes/microgame_base/bomb_timer/sprites/bomb_flare1.png" id="5_shike"]
+[ext_resource type="Texture2D" uid="uid://bk3cbfgn1qemh" path="res://scenes/microgame_base/bomb_timer/sprites/bomb_flare2.png" id="6_ng5co"]
+[ext_resource type="Texture2D" uid="uid://ds16cq4urux2t" path="res://scenes/microgame_base/bomb_timer/sprites/bomb_letter1.png" id="7_up5wl"]
+[ext_resource type="Texture2D" uid="uid://clriinsjisooa" path="res://scenes/microgame_base/bomb_timer/sprites/bomb_letter2.png" id="8_ml5py"]
+[ext_resource type="Texture2D" uid="uid://bbwlu07hjplk6" path="res://scenes/microgame_base/bomb_timer/sprites/bomb_letter3.png" id="9_4lsj7"]
+[ext_resource type="AudioStream" uid="uid://vk7yh5ni18l0" path="res://scenes/microgame_base/bomb_timer/sounds/tick.wav" id="10_2bxdh"]
+[ext_resource type="AudioStream" uid="uid://bpv8qogwtasmg" path="res://scenes/microgame_base/bomb_timer/sounds/tock.wav" id="11_p23qu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7vrph"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_jbd2q")
+}],
+"loop": true,
+"name": &"head1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_n0b7m")
+}],
+"loop": true,
+"name": &"head2",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g7654"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_shike")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ng5co")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1crco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_up5wl")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ml5py")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_4lsj7")
+}],
+"loop": true,
+"name": &"3",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BombTimer" type="Node2D"]
+z_index = 100
+script = ExtResource("1_8bajo")
+
+[node name="TickTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="BombExplode" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-44, -80)
+scale = Vector2(4, 4)
+texture = ExtResource("2_6p0l4")
+
+[node name="BombLine" type="Line2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 1)
+points = PackedVector2Array(0, 0, 1050, 0)
+width = 12.0
+texture = ExtResource("3_h7300")
+texture_mode = 1
+joint_mode = 1
+
+[node name="BombHead" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-62, -25)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_7vrph")
+animation = &"head1"
+
+[node name="BombFlare" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1078, -17)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_g7654")
+autoplay = "default"
+frame_progress = 0.287858
+
+[node name="Number" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-92, -119)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_1crco")
+
+[node name="Tick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_2bxdh")
+
+[node name="Tock" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_p23qu")
+
+[connection signal="timeout" from="TickTimer" to="." method="_on_tick_timer_timeout"]

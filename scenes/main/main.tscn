@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://cqiygaoduxj2v"]
+[gd_scene load_steps=3 format=3 uid="uid://cqiygaoduxj2v"]
+
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_c1cp2"]
+[ext_resource type="PackedScene" uid="uid://blcsmx6jc2qwq" path="res://microgames/knight_game/knight_game.tscn" id="2_s0n5d"]
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_c1cp2")
+microgrames = Array[PackedScene]([ExtResource("2_s0n5d")])
