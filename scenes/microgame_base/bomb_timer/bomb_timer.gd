@@ -25,7 +25,7 @@ var tick_count = -1
 signal exploded
 
 func activate(secs: int):
-	await get_tree().create_timer(1.0).timeout
+	#await get_tree().create_timer(1.0).timeout
 	tick_count = secs * 2
 	tick_timer.start()
 	

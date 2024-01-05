@@ -37,6 +37,7 @@ enum ControlType {
 @export var bomb_timer : BombTimer
 
 # SIGNALS
+signal finish_game
 signal win_game
 signal lose_game
 
@@ -56,4 +57,5 @@ func on_bomb_timeout():
 	else:
 		print("Won game!")
 		win_game.emit()
+	finish_game.emit()
 	
