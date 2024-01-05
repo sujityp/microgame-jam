@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://3i5s37pnwpwc"]
 
-[ext_resource type="Script" path="res://scenes/microgame_base/microgame.gd" id="1_oyxbn"]
-[ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/microgame_base/bomb_timer/bomb_timer.tscn" id="2_gg47g"]
+[ext_resource type="Script" path="res://scenes/microgame_template/microgame.gd" id="1_oyxbn"]
+[ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/bomb_timer/bomb_timer.tscn" id="2_gg47g"]
 
 [node name="Microgame" type="Node2D" node_paths=PackedStringArray("bomb_timer")]
 process_mode = 1

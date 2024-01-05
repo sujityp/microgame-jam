@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbwlu07hjplk6"
-path="res://.godot/imported/bomb_letter3.png-2d050c0ed6882f6d8830b82ef0a93334.ctex"
+uid="uid://bk3cbfgn1qemh"
+path="res://.godot/imported/bomb_flare2.png-5d49334d199b2af523f023c962208a26.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/microgame_base/bomb_timer/sprites/bomb_letter3.png"
-dest_files=["res://.godot/imported/bomb_letter3.png-2d050c0ed6882f6d8830b82ef0a93334.ctex"]
+source_file="res://scenes/bomb_timer/sprites/bomb_flare2.png"
+dest_files=["res://.godot/imported/bomb_flare2.png-5d49334d199b2af523f023c962208a26.ctex"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://vk7yh5ni18l0"
-path="res://.godot/imported/tick.wav-ed00783c45dbd24734c1269c28b48f38.sample"
+path="res://.godot/imported/tick.wav-016036b284a6e75a359684ccfcefc2e1.sample"
 
 [deps]
 
-source_file="res://scenes/microgame_base/bomb_timer/sounds/tick.wav"
-dest_files=["res://.godot/imported/tick.wav-ed00783c45dbd24734c1269c28b48f38.sample"]
+source_file="res://scenes/bomb_timer/sounds/tick.wav"
+dest_files=["res://.godot/imported/tick.wav-016036b284a6e75a359684ccfcefc2e1.sample"]
 
 [params]
 

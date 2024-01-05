@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://microgames/knight_game/knight_game.gd" id="1_7xvop"]
 [ext_resource type="Texture2D" uid="uid://bm3obu3swqtih" path="res://microgames/knight_game/bg_1.png" id="2_7cnib"]
 [ext_resource type="PackedScene" uid="uid://cuqivenufjquj" path="res://microgames/knight_game/explosion/explosion.tscn" id="2_pklno"]
-[ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/microgame_base/bomb_timer/bomb_timer.tscn" id="2_xxt2y"]
+[ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/bomb_timer/bomb_timer.tscn" id="2_xxt2y"]
 [ext_resource type="Texture2D" uid="uid://ckom6vnxfspon" path="res://microgames/knight_game/bg_2.png" id="3_q86sn"]
 [ext_resource type="Texture2D" uid="uid://vv072yhpjjv6" path="res://microgames/knight_game/bg_3.png" id="4_rsr5x"]
 [ext_resource type="Texture2D" uid="uid://dm8sxhp7s544f" path="res://microgames/knight_game/tileset.png" id="7_fn1cu"]
@@ -426,7 +426,6 @@ explosion = ExtResource("2_pklno")
 game_name = "Kill the Skeleton Guy"
 creator_name = "Thomas"
 game_description = "Time your swing and click the left mouse button to kill the evil skelly man"
-lose_on_timeout = false
 message = "Click to swing!"
 bomb_timer = NodePath("BombTimer")
 
