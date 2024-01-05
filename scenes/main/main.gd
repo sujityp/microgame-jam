@@ -50,8 +50,10 @@ func on_microgame_done():
 		pass
 	
 	if won:
+		print("Won game!")
 		win_sound.play()
 	else:
+		print("Lost game!")	
 		lose_sound.play()
 		
 	await get_tree().create_timer(1.75).timeout

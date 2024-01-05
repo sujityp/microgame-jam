@@ -52,10 +52,8 @@ func _ready():
 	
 func on_bomb_timeout():
 	if lose_on_timeout:
-		print("Lost game!")
 		lose_game.emit()
 	else:
-		print("Won game!")
 		win_game.emit()
 	finish_game.emit()
 	
