@@ -1,0 +1,230 @@
+[gd_scene load_steps=17 format=3 uid="uid://dcxnmb7wyteu0"]
+
+[ext_resource type="Script" path="res://microgames/pokemon_game/pokemon_game.gd" id="1_gvta7"]
+[ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/bomb_timer/bomb_timer.tscn" id="2_p3fkg"]
+[ext_resource type="Texture2D" uid="uid://isncnivtmd31" path="res://microgames/pokemon_game/bg_sprites/texture_missing.png" id="3_1e7al"]
+[ext_resource type="Texture2D" uid="uid://celqowpi8crs0" path="res://microgames/pokemon_game/bg_sprites/gba.png" id="4_ruj0y"]
+[ext_resource type="Texture2D" uid="uid://dtokcdw80ngyy" path="res://microgames/pokemon_game/bg_sprites/grass_background.png" id="5_glqky"]
+[ext_resource type="Texture2D" uid="uid://htj3jrge4kmo" path="res://microgames/pokemon_game/bg_sprites/MoveMenu.png" id="6_4fadc"]
+[ext_resource type="Texture2D" uid="uid://dp05ophyork4b" path="res://microgames/pokemon_game/pokemon_sprites/charizard.png" id="7_2t5d2"]
+[ext_resource type="Texture2D" uid="uid://dnao832bksqrl" path="res://microgames/pokemon_game/pokemon_sprites/oddish.png" id="8_nolng"]
+[ext_resource type="FontFile" uid="uid://b8sd2ywnb32bu" path="res://microgames/pokemon_game/pokemon_fire_red.ttf" id="9_6govj"]
+[ext_resource type="Texture2D" uid="uid://dvg4m53kgngnd" path="res://microgames/pokemon_game/bg_sprites/arrow.png" id="9_f3rfi"]
+[ext_resource type="Texture2D" uid="uid://dtjng5vugq3ts" path="res://microgames/pokemon_game/bg_sprites/enemyHp.png" id="11_236gt"]
+[ext_resource type="Texture2D" uid="uid://egvb13urpek1" path="res://microgames/pokemon_game/bg_sprites/hp.png" id="12_5g17d"]
+[ext_resource type="AudioStream" uid="uid://470n85fi3bhn" path="res://microgames/pokemon_game/music/battleMusic.mp3" id="14_tac87"]
+[ext_resource type="AudioStream" uid="uid://c86d20b6a4buh" path="res://microgames/pokemon_game/music/buttonSFX.mp3" id="15_h7lwt"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ux2um"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_b3q13"]
+
+[node name="PokemonGame" type="Node2D" node_paths=PackedStringArray("bomb_timer")]
+script = ExtResource("1_gvta7")
+game_name = "Pokemon"
+creator_name = "Gaurav"
+game_description = "Choose the correct critical move."
+message = "Select the critcal attack!"
+control_type = 1
+bomb_timer = NodePath("BombTimer")
+
+[node name="BombTimer" parent="." instance=ExtResource("2_p3fkg")]
+position = Vector2(136, 703)
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="GBAback" type="Sprite2D" parent="Background"]
+position = Vector2(643, 391)
+scale = Vector2(3, 2.65)
+texture = ExtResource("3_1e7al")
+
+[node name="GBA" type="Sprite2D" parent="Background"]
+position = Vector2(631, 399)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_ruj0y")
+
+[node name="Grass" type="Sprite2D" parent="Background"]
+position = Vector2(632.5, 302)
+scale = Vector2(2.7125, 3)
+texture = ExtResource("5_glqky")
+
+[node name="MoveMenu" type="Sprite2D" parent="Background"]
+position = Vector2(632.5, 523.5)
+scale = Vector2(2.7125, 2.22917)
+texture = ExtResource("6_4fadc")
+
+[node name="OurPokemon" type="Sprite2D" parent="Background"]
+position = Vector2(482, 386)
+scale = Vector2(3, 3)
+texture = ExtResource("7_2t5d2")
+
+[node name="Enemy" type="Sprite2D" parent="Background"]
+position = Vector2(777, 269)
+scale = Vector2(3, 3)
+texture = ExtResource("8_nolng")
+
+[node name="arrow" type="Sprite2D" parent="Background"]
+position = Vector2(340, 505)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("9_f3rfi")
+
+[node name="EnemyHp" type="Sprite2D" parent="Background"]
+position = Vector2(482, 211)
+scale = Vector2(3, 3)
+texture = ExtResource("11_236gt")
+
+[node name="SolidSprite" type="Sprite2D" parent="Background/EnemyHp"]
+modulate = Color(0.972549, 0.972549, 0.858824, 1)
+position = Vector2(27.6667, -5.38195)
+scale = Vector2(17.1667, 9.2361)
+texture = SubResource("CanvasTexture_ux2um")
+
+[node name="OurHp" type="Sprite2D" parent="Background"]
+position = Vector2(788, 403)
+scale = Vector2(3, 3)
+texture = ExtResource("12_5g17d")
+
+[node name="SolidSprite" type="Sprite2D" parent="Background/OurHp"]
+modulate = Color(0.972549, 0.972549, 0.858824, 1)
+position = Vector2(32, -9.66667)
+scale = Vector2(22.8334, 10.6667)
+texture = SubResource("CanvasTexture_b3q13")
+
+[node name="Text" type="Node2D" parent="."]
+
+[node name="Wing Attack" type="Label" parent="Text"]
+offset_left = 355.0
+offset_top = 485.0
+offset_right = 479.0
+offset_bottom = 517.0
+theme_override_colors/font_color = Color(0.164706, 0.188235, 0.188235, 1)
+theme_override_colors/font_shadow_color = Color(0.811765, 0.784314, 0.811765, 1)
+theme_override_fonts/font = ExtResource("9_6govj")
+theme_override_font_sizes/font_size = 36
+text = "WING ATTACK
+"
+
+[node name="Flamethrower" type="Label" parent="Text"]
+offset_left = 355.0
+offset_top = 520.0
+offset_right = 507.0
+offset_bottom = 552.0
+theme_override_colors/font_color = Color(0.164706, 0.188235, 0.188235, 1)
+theme_override_colors/font_shadow_color = Color(0.811765, 0.784314, 0.811765, 1)
+theme_override_fonts/font = ExtResource("9_6govj")
+theme_override_font_sizes/font_size = 36
+text = "FLAMETHROWER
+"
+
+[node name="Dragon Rage" type="Label" parent="Text"]
+offset_left = 555.0
+offset_top = 485.0
+offset_right = 707.0
+offset_bottom = 517.0
+theme_override_colors/font_color = Color(0.164706, 0.188235, 0.188235, 1)
+theme_override_colors/font_shadow_color = Color(0.811765, 0.784314, 0.811765, 1)
+theme_override_fonts/font = ExtResource("9_6govj")
+theme_override_font_sizes/font_size = 36
+text = "DRAGON RAGE"
+
+[node name="Outrage" type="Label" parent="Text"]
+offset_left = 555.0
+offset_top = 520.0
+offset_right = 707.0
+offset_bottom = 552.0
+theme_override_colors/font_color = Color(0.164706, 0.188235, 0.188235, 1)
+theme_override_colors/font_shadow_color = Color(0.811765, 0.784314, 0.811765, 1)
+theme_override_fonts/font = ExtResource("9_6govj")
+theme_override_font_sizes/font_size = 36
+text = "OUTRAGE
+"
+
+[node name="PP" type="Label" parent="Text"]
+offset_left = 856.0
+offset_top = 489.0
+offset_right = 925.0
+offset_bottom = 521.0
+theme_override_colors/font_color = Color(0.164706, 0.188235, 0.188235, 1)
+theme_override_colors/font_shadow_color = Color(0.811765, 0.784314, 0.811765, 1)
+theme_override_fonts/font = ExtResource("9_6govj")
+theme_override_font_sizes/font_size = 36
+text = "35
+"
+
+[node name="PP2" type="Label" parent="Text"]
+offset_left = 906.0
+offset_top = 488.0
+offset_right = 975.0
+offset_bottom = 520.0
+theme_override_colors/font_color = Color(0.164706, 0.188235, 0.188235, 1)
+theme_override_colors/font_shadow_color = Color(0.811765, 0.784314, 0.811765, 1)
+theme_override_fonts/font = ExtResource("9_6govj")
+theme_override_font_sizes/font_size = 36
+text = "56
+"
+
+[node name="Type" type="Label" parent="Text"]
+offset_left = 828.0
+offset_top = 526.0
+offset_right = 912.0
+offset_bottom = 558.0
+theme_override_colors/font_color = Color(0.164706, 0.188235, 0.188235, 1)
+theme_override_colors/font_shadow_color = Color(0.811765, 0.784314, 0.811765, 1)
+theme_override_fonts/font = ExtResource("9_6govj")
+theme_override_font_sizes/font_size = 36
+text = "FLYING
+"
+
+[node name="CharizardLVL" type="Label" parent="Text"]
+offset_left = 854.0
+offset_top = 357.0
+offset_right = 919.0
+offset_bottom = 389.0
+theme_override_colors/font_color = Color(0.164706, 0.188235, 0.188235, 1)
+theme_override_colors/font_shadow_color = Color(0.843137, 0.815686, 0.701961, 1)
+theme_override_fonts/font = ExtResource("9_6govj")
+theme_override_font_sizes/font_size = 36
+text = "Lv 56"
+
+[node name="Charizard" type="Label" parent="Text"]
+offset_left = 677.0
+offset_top = 357.0
+offset_right = 801.0
+offset_bottom = 389.0
+theme_override_colors/font_color = Color(0.164706, 0.188235, 0.188235, 1)
+theme_override_colors/font_shadow_color = Color(0.843137, 0.815686, 0.701961, 1)
+theme_override_fonts/font = ExtResource("9_6govj")
+theme_override_font_sizes/font_size = 36
+text = "CHARIZARD"
+
+[node name="EnemyLVL" type="Label" parent="Text"]
+offset_left = 526.0
+offset_top = 177.0
+offset_right = 591.0
+offset_bottom = 209.0
+theme_override_colors/font_color = Color(0.164706, 0.188235, 0.188235, 1)
+theme_override_colors/font_shadow_color = Color(0.843137, 0.815686, 0.701961, 1)
+theme_override_fonts/font = ExtResource("9_6govj")
+theme_override_font_sizes/font_size = 36
+text = "Lv 7"
+horizontal_alignment = 2
+
+[node name="Enemy" type="Label" parent="Text"]
+offset_left = 348.0
+offset_top = 177.0
+offset_right = 472.0
+offset_bottom = 209.0
+theme_override_colors/font_color = Color(0.164706, 0.188235, 0.188235, 1)
+theme_override_colors/font_shadow_color = Color(0.843137, 0.815686, 0.701961, 1)
+theme_override_fonts/font = ExtResource("9_6govj")
+theme_override_font_sizes/font_size = 36
+text = "ODDISH"
+
+[node name="Music" type="Node2D" parent="."]
+
+[node name="battleMusic" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("14_tac87")
+autoplay = true
+
+[node name="buttonSFX" type="AudioStreamPlayer2D" parent="Music"]
+stream = ExtResource("15_h7lwt")
