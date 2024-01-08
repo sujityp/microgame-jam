@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cqiygaoduxj2v"]
+[gd_scene load_steps=20 format=3 uid="uid://cqiygaoduxj2v"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_c1cp2"]
 [ext_resource type="PackedScene" uid="uid://blcsmx6jc2qwq" path="res://microgames/knight_game/knight_game.tscn" id="2_s0n5d"]
@@ -52,83 +52,9 @@ _data = {
 
 [sub_resource type="LabelSettings" id="LabelSettings_xo46v"]
 font = ExtResource("7_8m45n")
-font_size = 64
-outline_size = 40
+font_size = 24
+outline_size = 16
 outline_color = Color(0.133333, 0.12549, 0.203922, 1)
-
-[sub_resource type="Animation" id="Animation_6fbkr"]
-resource_name = "increment"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 79), Vector2(-128, 79), Vector2(-128, 79), Vector2(0, 79)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1.2, 1.2), Vector2(1, 1)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../..")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"increment_score"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_f8jvo"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 79)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vnlbv"]
-_data = {
-"RESET": SubResource("Animation_f8jvo"),
-"increment": SubResource("Animation_6fbkr")
-}
 
 [sub_resource type="Animation" id="Animation_fpbui"]
 resource_name = "RESET"
@@ -238,7 +164,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(638, 454)]
+"values": [Vector2(638, 562)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -362,7 +288,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(638, 454), Vector2(638, 826.667)]
+"values": [Vector2(638, 562), Vector2(638, 826.667)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -486,7 +412,7 @@ tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(638, 826.667), Vector2(638, 454)]
+"values": [Vector2(638, 826.667), Vector2(638, 562)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -572,19 +498,17 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_top = -281.0
-offset_bottom = -198.0
+offset_right = -960.0
+offset_bottom = -250.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "0123456789"
+scale = Vector2(4, 4)
+text = "0123456789
+"
 label_settings = SubResource("LabelSettings_xo46v")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Control/ScoreLabel"]
-libraries = {
-"": SubResource("AnimationLibrary_vnlbv")
-}
 
 [node name="LivesLabel" type="Label" parent="UI/Control"]
 layout_mode = 1
@@ -612,10 +536,11 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 136.0
 offset_top = -114.0
-offset_right = -130.0
-offset_bottom = -31.0
+offset_right = -809.0
+offset_bottom = -67.0002
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(3, 3)
 text = "Dodge the peepee poopoos!"
 label_settings = SubResource("LabelSettings_xo46v")
 horizontal_alignment = 1
@@ -625,8 +550,8 @@ autowrap_mode = 1
 [node name="ControlImage" type="Sprite2D" parent="UI/Control"]
 z_index = 4096
 texture_filter = 1
-position = Vector2(638, 454)
-scale = Vector2(3, 3)
+position = Vector2(638, 562)
+scale = Vector2(4, 4)
 texture = ExtResource("4_gv218")
 vframes = 3
 
