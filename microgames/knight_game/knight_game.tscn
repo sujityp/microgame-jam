@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://blcsmx6jc2qwq"]
+[gd_scene load_steps=13 format=3 uid="uid://blcsmx6jc2qwq"]
 
 [ext_resource type="Script" path="res://microgames/knight_game/knight_game.gd" id="1_7xvop"]
 [ext_resource type="Texture2D" uid="uid://bm3obu3swqtih" path="res://microgames/knight_game/bg_1.png" id="2_7cnib"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dm8sxhp7s544f" path="res://microgames/knight_game/tileset.png" id="7_fn1cu"]
 [ext_resource type="PackedScene" uid="uid://25k8wwxgww6j" path="res://microgames/knight_game/knight/knight.tscn" id="7_vj5w2"]
 [ext_resource type="PackedScene" uid="uid://cpxqihhcrig0c" path="res://microgames/knight_game/skeleton/skeleton.tscn" id="8_8fwlb"]
+[ext_resource type="AudioStream" uid="uid://ch4tc8ie50mca" path="res://microgames/knight_game/music.mp3" id="10_sm2ok"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xykav"]
 texture = ExtResource("7_fn1cu")
@@ -465,6 +466,10 @@ position = Vector2(211, 491)
 
 [node name="BombTimer" parent="." instance=ExtResource("2_xxt2y")]
 position = Vector2(136, 703)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_sm2ok")
+volume_db = 5.0
 
 [connection signal="body_entered" from="Knight" to="." method="_on_knight_body_entered"]
 [connection signal="sword_hit" from="Knight" to="." method="_on_knight_sword_hit"]

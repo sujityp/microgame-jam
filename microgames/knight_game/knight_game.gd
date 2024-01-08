@@ -7,11 +7,16 @@ extends Microgame
 
 @onready var knight = $Knight
 @onready var skeleton = $Skeleton
+@onready var music = $Music
 
 func _ready():
 	# Second most important part! This calls Microgame's _ready() function
 	# to prepare the bomb timer.
 	super()
+	
+	await get_tree().create_timer(0.67).timeout
+	music.play()
+
 
 func win():
 	win_game.emit()
