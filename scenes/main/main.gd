@@ -3,23 +3,27 @@ class_name Main
 
 @export var microgames : Array[PackedScene]
 
+var in_game : bool = false
+var high_score : int = 0
+
 var current_mg : Microgame
 var mg_won : bool = false
 var score : int = 0
+var lives : int = 4
 var time_scale : float = 1
 
 # Room
-@onready var room_anim = $AnimationPlayer
+@onready var room_anim = $RoomAnimations
 @onready var win_sound = $Win
 @onready var lose_sound = $Loss
 @onready var next_sound = $Next
 
 # UI
-@onready var score_anim = $UI/Control/ScoreLabel/AnimationPlayer
-@onready var score_label = $UI/Control/ScoreLabel
-@onready var lives_label = $UI/Control/LivesLabel
-@onready var message_label = $UI/Control/MessageLabel
-@onready var control_image = $UI/Control/ControlImage
+@onready var label_anim = $UI/Game/LabelAnimations
+@onready var score_label = $UI/Game/ScoreLabel
+@onready var lives_label = $UI/Game/LivesLabel
+@onready var message_label = $UI/Game/MessageLabel
+@onready var control_image = $UI/Game/ControlImage
 const control_frames = { # frame number for the sprite
 	Microgame.ControlType.MOUSE : 1,
 	Microgame.ControlType.KEYBOARD : 0,
@@ -36,6 +40,7 @@ func start_new_microgame():
 	
 	message_label.text = current_mg.message
 	control_image.frame = control_frames[current_mg.control_type]
+	room_anim.play("change_to_message")
 	
 	next_sound.play()
 	await get_tree().create_timer(1).timeout
@@ -63,12 +68,13 @@ func on_microgame_done():
 	if won:
 		print("Won game!")
 		win_sound.play()
-		score_anim.play("increment") # the animation increments the score
+		label_anim.play("increment_score") # the animation calls increment_score()
 	else:
-		print("Lost game!")	
+		print("Lost game!")
 		lose_sound.play()
-		
-	await get_tree().create_timer(1.75).timeout
+		label_anim.play("lose_life") # the animation calls lose_life()
+	
+	await label_anim.animation_finished
 	start_new_microgame()
 
 
@@ -80,3 +86,9 @@ func unload_current_microgame():
 func increment_score():
 	score += 1
 	score_label.text = str(score)
+	# TODO: add speedup
+
+func lose_life():
+	lives -= 1
+	lives_label.text = "Lives: " + str(lives)
+	# TODO: add game over 

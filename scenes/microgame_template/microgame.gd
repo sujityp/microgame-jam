@@ -22,7 +22,7 @@ class_name Microgame
 @export var lose_on_timeout : bool = true
 
 ## The short message that briefly shows when your game starts. Try to limit its length to under 30 characters.
-@export var message : String
+@export var message : String = "Message!"
 
 enum ControlType {
 	MOUSE,
