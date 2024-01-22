@@ -14,8 +14,8 @@ var mouse_clicked = false
 var alive = true
 
 @onready var Explosion = preload("res://microgames/knight_game/explosion/explosion.tscn")
-@onready var StepSFX = $Music/StepSFX
-@onready var JumpSFX = $Music/JumpSFX
+@onready var StepSFX = $StepSFX
+@onready var JumpSFX = $JumpSFX
 
 
 func _physics_process(delta):

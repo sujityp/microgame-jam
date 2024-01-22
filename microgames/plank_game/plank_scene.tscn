@@ -183,17 +183,17 @@ texture = ExtResource("4_iscwk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pirate"]
 shape = SubResource("RectangleShape2D_7qusk")
 
+[node name="StepSFX" type="AudioStreamPlayer" parent="Pirate"]
+stream = ExtResource("10_v454r")
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="Pirate"]
+stream = ExtResource("11_c66e5")
+
 [node name="Music" type="Node" parent="."]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("9_4ycam")
 autoplay = true
-
-[node name="StepSFX" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("10_v454r")
-
-[node name="JumpSFX" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("11_c66e5")
 
 [connection signal="body_entered" from="RaftSprite/SafeArea" to="." method="_on_safe_area_body_entered"]
 [connection signal="jumped" from="Pirate" to="." method="_on_pirate_jumped"]

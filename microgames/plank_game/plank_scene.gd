@@ -33,7 +33,7 @@ func _ready():
 		print(SharkPos1.position)
 
 
-func _process(delta):
+func _process(_delta):
 	if Pirate.position.y >= 700 and not lost:
 		lose()
 		lost = true
