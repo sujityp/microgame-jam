@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cqiygaoduxj2v"]
+[gd_scene load_steps=30 format=3 uid="uid://cqiygaoduxj2v"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_c1cp2"]
 [ext_resource type="PackedScene" uid="uid://blcsmx6jc2qwq" path="res://microgames/knight_game/knight_game.tscn" id="2_s0n5d"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c577jxgsebcnh" path="res://scenes/main/sprites/control.png" id="4_gv218"]
 [ext_resource type="PackedScene" uid="uid://4kma5uui7ppl" path="res://microgames/plank_game/plank_scene.tscn" id="4_uh3ot"]
 [ext_resource type="Texture2D" uid="uid://2p5ui5c44pt4" path="res://scenes/main/sprites/door_right.png" id="4_wfv2r"]
+[ext_resource type="PackedScene" uid="uid://crf6a81dkphuu" path="res://microgames/cycling_game/cycling_game.tscn" id="5_7fcbg"]
 [ext_resource type="FontFile" uid="uid://dxxddb5c1lot" path="res://scenes/main/sprites/font.ttf" id="7_8m45n"]
 [ext_resource type="AudioStream" uid="uid://ctnvpdnbfg33b" path="res://scenes/main/sounds/music_win.wav" id="7_56n1x"]
 [ext_resource type="AudioStream" uid="uid://diam2nhqi5des" path="res://scenes/main/sounds/music_loss.wav" id="8_slq8a"]
@@ -1006,7 +1007,7 @@ _data = {
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_c1cp2")
-microgames = Array[PackedScene]([ExtResource("2_s0n5d"), ExtResource("3_yc8c6"), ExtResource("4_uh3ot")])
+microgames = Array[PackedScene]([ExtResource("2_s0n5d"), ExtResource("3_yc8c6"), ExtResource("4_uh3ot"), ExtResource("5_7fcbg")])
 
 [node name="Room" type="Node2D" parent="."]
 z_index = 4095
