@@ -62,7 +62,7 @@ func update_move(diff):
 	pp2.text = pp_max[id];
 	type.text = types[id];
 
-func _process(delta):
+func _process(_delta):
 	if canMove:
 		if Input.is_action_pressed("keyboard_down") and arrow.position.y < 540:
 			arrow.position.y = 540;
