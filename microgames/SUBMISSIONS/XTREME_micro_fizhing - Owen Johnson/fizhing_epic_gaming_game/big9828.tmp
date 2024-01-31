@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://d03yljxo8guj6"]
+
+[ext_resource type="Script" path="res://microgames/my_game/ninja_frog.gd" id="1_h70rs"]
+[ext_resource type="Texture2D" uid="uid://4ghs62rktjph" path="res://microgames/fizhing_epic_gaming_game/assets/BigMan.png" id="2_vj3xr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2vlh1"]
+radius = 56.0
+height = 134.0
+
+[node name="bigManMC" type="CharacterBody2D"]
+script = ExtResource("1_h70rs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 12)
+scale = Vector2(2.1125, 2.1125)
+texture = ExtResource("2_vj3xr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_2vlh1")

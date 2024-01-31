@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://covkyngctime5"
+path="res://.godot/imported/Music.mp3-7d19bcc20c5a0bdd9fca0109600c9e32.mp3str"
+
+[deps]
+
+source_file="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/assets/Music.mp3"
+dest_files=["res://.godot/imported/Music.mp3-7d19bcc20c5a0bdd9fca0109600c9e32.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

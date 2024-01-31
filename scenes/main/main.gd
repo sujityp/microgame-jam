@@ -7,6 +7,7 @@ var in_game : bool = false
 var high_score : int = 0
 
 var current_mg : Microgame
+var mg_state_got : bool = false
 var mg_won : bool = false
 var score : int = 0
 var lives : int = 4
@@ -51,15 +52,16 @@ func start_new_microgame():
 func load_microgame(microgame : PackedScene):
 	var inst = microgame.instantiate() as Microgame
 	inst.finish_game.connect(on_microgame_done)
-	inst.win_game.connect(func(): mg_won = true)
-	inst.lose_game.connect(func(): pass) # losing doesnt change a win
+	inst.win_game.connect(on_game_won)
+	inst.lose_game.connect(on_game_lost)
+	mg_state_got = false
 	mg_won = false
 	current_mg = inst
 	
 
 func on_microgame_done():
 	# if not already won, look at the timeout setting
-	var won = mg_won or (not current_mg.lose_on_timeout)
+	var won = mg_won if mg_state_got else !current_mg.lose_on_timeout
 	
 	room_anim.play("zoom_out")
 	await room_anim.animation_finished
@@ -92,3 +94,13 @@ func lose_life():
 	lives -= 1
 	lives_label.text = "Lives: " + str(lives)
 	# TODO: add game over 
+
+func on_game_won():
+	if not mg_state_got:
+		mg_state_got = true
+		mg_won = true
+	
+func on_game_lost():
+	if not mg_state_got:
+		mg_state_got = true
+		mg_won = false

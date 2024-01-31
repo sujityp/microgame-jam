@@ -1,0 +1,113 @@
+[gd_scene load_steps=13 format=3 uid="uid://dwoda2yawd6du"]
+
+[ext_resource type="Script" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/Feesh.gd" id="1_bt1sd"]
+[ext_resource type="PackedScene" uid="uid://crl1lg000r8ix" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/explosion2/explosion.tscn" id="2_rlrn6"]
+[ext_resource type="Texture2D" uid="uid://qf52xekmhkm4" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/assets/hellfizh.png" id="2_sdid3"]
+[ext_resource type="Texture2D" uid="uid://c46l4mqy3w813" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/assets/hellfizhROCK.png" id="3_7j0qx"]
+[ext_resource type="Texture2D" uid="uid://daqrdbq75liog" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/assets/hellfizhMONGUS.png" id="4_t0uou"]
+[ext_resource type="AudioStream" uid="uid://1rh7f4i8m0nu" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/assets/Mongus.mp3" id="6_4ctva"]
+
+[sub_resource type="Animation" id="Animation_f0s4g"]
+resource_name = "MongusFish"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_t0uou")]
+}
+
+[sub_resource type="Animation" id="Animation_gov2i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_sdid3")]
+}
+
+[sub_resource type="Animation" id="Animation_ftqkb"]
+resource_name = "RegFish"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_sdid3")]
+}
+
+[sub_resource type="Animation" id="Animation_0i6o1"]
+resource_name = "RockFish"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_7j0qx")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_em28a"]
+_data = {
+"MongusFish": SubResource("Animation_f0s4g"),
+"RESET": SubResource("Animation_gov2i"),
+"RegFish": SubResource("Animation_ftqkb"),
+"RockFish": SubResource("Animation_0i6o1")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2phke"]
+radius = 21.3333
+
+[node name="Feesh" type="CharacterBody2D"]
+scale = Vector2(1.5, 1.5)
+collision_mask = 2
+script = ExtResource("1_bt1sd")
+explosion = ExtResource("2_rlrn6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_em28a")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sdid3")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_2phke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2phke")
+
+[node name="SFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_4ctva")
+volume_db = 5.373
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

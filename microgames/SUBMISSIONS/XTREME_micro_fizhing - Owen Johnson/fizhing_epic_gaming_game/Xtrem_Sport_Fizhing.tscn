@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://bno42x8ocviac"]
+
+[ext_resource type="Script" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/Xtrem_Sport_Fizhing.gd" id="1_rfh6m"]
+[ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/bomb_timer/bomb_timer.tscn" id="2_qwtld"]
+[ext_resource type="PackedScene" uid="uid://crl1lg000r8ix" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/explosion2/explosion.tscn" id="2_u48g7"]
+[ext_resource type="PackedScene" uid="uid://cnrwb337knpnu" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/BigGuyMainChar.tscn" id="3_fbw3j"]
+[ext_resource type="Texture2D" uid="uid://cw1op7o6qb85u" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/assets/fishBg.png" id="4_ieh7s"]
+[ext_resource type="PackedScene" uid="uid://dwoda2yawd6du" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/feesh.tscn" id="5_qx2yn"]
+[ext_resource type="AudioStream" uid="uid://covkyngctime5" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/assets/Music.mp3" id="6_qj8yy"]
+
+[node name="XtremSportFizhing" type="Node2D" node_paths=PackedStringArray("bomb_timer")]
+script = ExtResource("1_rfh6m")
+explosion = ExtResource("2_u48g7")
+game_name = "XTREME Sport Fizhing"
+creator_name = "Owen Johnson"
+game_description = "I turned a funny highschool project's concept into a microgame format :)
+WASD/Arrows to move.
+Space/Enter to cast rod.
+Catch at least 1 fish before time runs out to win!"
+game_length = 5
+message = "Catch a Fish!"
+control_type = 1
+bomb_timer = NodePath("BombTimer")
+
+[node name="FishBg" type="Sprite2D" parent="."]
+position = Vector2(640.75, 427.5)
+scale = Vector2(2.1425, 2.1425)
+texture = ExtResource("4_ieh7s")
+
+[node name="BombTimer" parent="." instance=ExtResource("2_qwtld")]
+position = Vector2(134, 700)
+
+[node name="BigGuyMainChar" parent="." instance=ExtResource("3_fbw3j")]
+position = Vector2(222, 122)
+
+[node name="Feesh" parent="." instance=ExtResource("5_qx2yn")]
+position = Vector2(-6, 2)
+
+[node name="Feesh2" parent="." instance=ExtResource("5_qx2yn")]
+position = Vector2(-6, 2)
+
+[node name="Feesh3" parent="." instance=ExtResource("5_qx2yn")]
+position = Vector2(-6, 2)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_qj8yy")
+
+[connection signal="exploded" from="BombTimer" to="." method="_on_bomb_timer_exploded"]

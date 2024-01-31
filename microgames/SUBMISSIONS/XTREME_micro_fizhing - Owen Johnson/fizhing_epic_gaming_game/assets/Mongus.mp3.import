@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1rh7f4i8m0nu"
+path="res://.godot/imported/Mongus.mp3-c488a9e234cb99b8569793579c3a9c84.mp3str"
+
+[deps]
+
+source_file="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/assets/Mongus.mp3"
+dest_files=["res://.godot/imported/Mongus.mp3-c488a9e234cb99b8569793579c3a9c84.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
