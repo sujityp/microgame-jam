@@ -1,0 +1,402 @@
+[gd_scene load_steps=32 format=3 uid="uid://s45n2re7v8xh"]
+
+[ext_resource type="Script" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/CountingGame.gd" id="1_f3ku1"]
+[ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/bomb_timer/bomb_timer.tscn" id="2_pd6q5"]
+[ext_resource type="Texture2D" uid="uid://tk58dprxpruv" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/grass_bg.png" id="3_ftxhv"]
+[ext_resource type="Script" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/Sheep_Motion.gd" id="4_25ltr"]
+[ext_resource type="Texture2D" uid="uid://1kxsollyo8rw" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/SheepAnimations/SheepRight/sheepright1.png" id="5_12xa0"]
+[ext_resource type="Texture2D" uid="uid://dwt50jc8y1d4i" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/SheepAnimations/SheepAway/sheepaway1.png" id="6_qoh5c"]
+[ext_resource type="Texture2D" uid="uid://bwttyhq5nsog" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/SheepAnimations/SheepAway/sheepaway2.png" id="7_8d4i7"]
+[ext_resource type="Texture2D" uid="uid://bidho3dew8v8l" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/SheepAnimations/SheepAway/sheepaway3.png" id="8_xw8xy"]
+[ext_resource type="Texture2D" uid="uid://cbyjjhv7q8x3m" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/SheepAnimations/SheepAway/sheepaway4.png" id="9_l5vps"]
+[ext_resource type="Texture2D" uid="uid://6i7v8b27wrsi" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/SheepAnimations/SheepRight/sheepright2.png" id="10_qb4uq"]
+[ext_resource type="Texture2D" uid="uid://bpcn2yxbaovhl" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/SheepAnimations/SheepRight/sheepright3.png" id="11_ec0e8"]
+[ext_resource type="Texture2D" uid="uid://coonfmbwn4e6h" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/SheepAnimations/SheepRight/sheepright4.png" id="12_ri7x5"]
+[ext_resource type="Texture2D" uid="uid://bjjojcq2cvesd" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/SheepAnimations/SheepTowards/sheeptowards1.png" id="13_0wahh"]
+[ext_resource type="Texture2D" uid="uid://dj5vm4yjimvxu" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/SheepAnimations/SheepTowards/sheeptowards2.png" id="14_koeox"]
+[ext_resource type="Texture2D" uid="uid://djyqdd6006nn0" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/SheepAnimations/SheepTowards/sheeptowards3.png" id="15_xww5f"]
+[ext_resource type="Texture2D" uid="uid://bxxbwpa5mxoad" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/SheepAnimations/SheepTowards/sheeptowards4.png" id="16_ovr6f"]
+[ext_resource type="Texture2D" uid="uid://bvri2yxadbypt" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/DigitalCounter.png" id="17_kxdtj"]
+[ext_resource type="FontFile" uid="uid://cn2ayx6tr1pnn" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/DIGITAL-COUNTER-7.REGULAR.TTF" id="18_54iqf"]
+[ext_resource type="AudioStream" uid="uid://cw83hm1sv7ur4" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/709989__audiocoffee__funny-country-loop-ver.wav" id="19_uln1e"]
+[ext_resource type="AudioStream" uid="uid://bvqgqkb1wwptk" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/72127__kizilsungur__sweetalertsound3.wav" id="20_4sktp"]
+[ext_resource type="FontFile" uid="uid://uvxksr1sxont" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/PONG-GAME.TTF" id="21_s2nu3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_it4mp"]
+size = Vector2(330.817, 351.31)
+
+[sub_resource type="Animation" id="Animation_ylg1r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Sheep:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_qoh5c")]
+}
+
+[sub_resource type="Animation" id="Animation_6bu6g"]
+resource_name = "sheep_away"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Sheep:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("6_qoh5c"), ExtResource("7_8d4i7"), ExtResource("8_xw8xy"), ExtResource("9_l5vps"), ExtResource("8_xw8xy")]
+}
+
+[sub_resource type="Animation" id="Animation_otksd"]
+resource_name = "sheep_left"
+
+[sub_resource type="Animation" id="Animation_ucx4x"]
+resource_name = "sheep_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Sheep:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("5_12xa0"), ExtResource("10_qb4uq"), ExtResource("11_ec0e8"), ExtResource("12_ri7x5"), ExtResource("5_12xa0")]
+}
+
+[sub_resource type="Animation" id="Animation_sxhrf"]
+resource_name = "sheep_towards"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite_Sheep:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_0wahh"), ExtResource("14_koeox"), ExtResource("15_xww5f"), ExtResource("16_ovr6f"), ExtResource("13_0wahh")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hs2q7"]
+_data = {
+"RESET": SubResource("Animation_ylg1r"),
+"sheep_away": SubResource("Animation_6bu6g"),
+"sheep_left": SubResource("Animation_otksd"),
+"sheep_right": SubResource("Animation_ucx4x"),
+"sheep_towards": SubResource("Animation_sxhrf")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owmx2"]
+size = Vector2(128, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhany"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gng47"]
+size = Vector2(62, 720)
+
+[node name="CountingGame" type="Node2D" node_paths=PackedStringArray("bomb_timer")]
+script = ExtResource("1_f3ku1")
+game_name = "Count the Sheep!"
+creator_name = "Riley Kay"
+game_description = "5 to 10 sheep will be generated, and the player will count the sheep using the spacebar, without going over or under the correct amount. Inspired by the WarioWare Inc. microgame, \"What's the Toadal?\""
+lose_on_timeout = false
+message = "Use the space bar to count the sheep!"
+control_type = 1
+bomb_timer = NodePath("BombTimer")
+
+[node name="GRASS" type="Sprite2D" parent="."]
+position = Vector2(640.125, 360)
+scale = Vector2(1.125, 1.125)
+texture = ExtResource("3_ftxhv")
+
+[node name="BombTimer" parent="." instance=ExtResource("2_pd6q5")]
+position = Vector2(141, 704)
+
+[node name="DIGITIAL_TIMER" type="Sprite2D" parent="."]
+position = Vector2(1122.06, 526.018)
+scale = Vector2(0.683157, 0.683158)
+texture = ExtResource("17_kxdtj")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DIGITIAL_TIMER"]
+offset_left = -112.0
+offset_top = -97.0
+offset_right = 192.0
+offset_bottom = 237.0
+theme_override_colors/default_color = Color(1, 0.227451, 0.227451, 1)
+theme_override_fonts/normal_font = ExtResource("18_54iqf")
+theme_override_font_sizes/normal_font_size = 210
+text = "00"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="DIGITIAL_TIMER"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DIGITIAL_TIMER/StaticBody2D"]
+position = Vector2(-0.0915527, -0.0264282)
+shape = SubResource("RectangleShape2D_it4mp")
+
+[node name="MAIN_MUSIC" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_uln1e")
+autoplay = true
+
+[node name="TOO_HIGH" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("20_4sktp")
+volume_db = 5.0
+
+[node name="Went_Too_High" type="RichTextLabel" parent="."]
+offset_left = 1006.0
+offset_top = 304.0
+offset_right = 1239.0
+offset_bottom = 439.0
+scale = Vector2(1.05304, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 8
+theme_override_constants/shadow_offset_y = 8
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("21_s2nu3")
+theme_override_font_sizes/normal_font_size = 50
+text = "YOU WENT TOO HIGH!!"
+scroll_active = false
+
+[node name="SHEEP1" type="CharacterBody2D" parent="."]
+position = Vector2(291, 169)
+script = ExtResource("4_25ltr")
+
+[node name="Sprite_Sheep" type="Sprite2D" parent="SHEEP1"]
+position = Vector2(1, 0)
+scale = Vector2(8, 8)
+texture = ExtResource("6_qoh5c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SHEEP1"]
+libraries = {
+"": SubResource("AnimationLibrary_hs2q7")
+}
+autoplay = "sheep_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SHEEP1"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_owmx2")
+
+[node name="SHEEP2" type="CharacterBody2D" parent="."]
+position = Vector2(931, 172)
+script = ExtResource("4_25ltr")
+
+[node name="Sprite_Sheep" type="Sprite2D" parent="SHEEP2"]
+position = Vector2(1, 0)
+scale = Vector2(8, 8)
+texture = ExtResource("6_qoh5c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SHEEP2"]
+libraries = {
+"": SubResource("AnimationLibrary_hs2q7")
+}
+autoplay = "sheep_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SHEEP2"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_owmx2")
+
+[node name="SHEEP3" type="CharacterBody2D" parent="."]
+position = Vector2(733, 219)
+script = ExtResource("4_25ltr")
+
+[node name="Sprite_Sheep" type="Sprite2D" parent="SHEEP3"]
+position = Vector2(1, 0)
+scale = Vector2(8, 8)
+texture = ExtResource("6_qoh5c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SHEEP3"]
+root_node = NodePath("../../SHEEP3")
+libraries = {
+"": SubResource("AnimationLibrary_hs2q7")
+}
+autoplay = "sheep_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SHEEP3"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_owmx2")
+
+[node name="SHEEP4" type="CharacterBody2D" parent="."]
+position = Vector2(242, 336)
+script = ExtResource("4_25ltr")
+
+[node name="Sprite_Sheep" type="Sprite2D" parent="SHEEP4"]
+position = Vector2(1, 0)
+scale = Vector2(8, 8)
+texture = ExtResource("6_qoh5c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SHEEP4"]
+root_node = NodePath("../../SHEEP4")
+libraries = {
+"": SubResource("AnimationLibrary_hs2q7")
+}
+autoplay = "sheep_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SHEEP4"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_owmx2")
+
+[node name="SHEEP5" type="CharacterBody2D" parent="."]
+position = Vector2(500, 186)
+script = ExtResource("4_25ltr")
+
+[node name="Sprite_Sheep" type="Sprite2D" parent="SHEEP5"]
+position = Vector2(1, 0)
+scale = Vector2(8, 8)
+texture = ExtResource("6_qoh5c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SHEEP5"]
+root_node = NodePath("../../SHEEP5")
+libraries = {
+"": SubResource("AnimationLibrary_hs2q7")
+}
+autoplay = "sheep_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SHEEP5"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_owmx2")
+
+[node name="SHEEP6" type="CharacterBody2D" parent="."]
+position = Vector2(596, 374)
+script = ExtResource("4_25ltr")
+
+[node name="Sprite_Sheep" type="Sprite2D" parent="SHEEP6"]
+position = Vector2(1, 0)
+scale = Vector2(8, 8)
+texture = ExtResource("6_qoh5c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SHEEP6"]
+root_node = NodePath("../../SHEEP6")
+libraries = {
+"": SubResource("AnimationLibrary_hs2q7")
+}
+autoplay = "sheep_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SHEEP6"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_owmx2")
+
+[node name="SHEEP7" type="CharacterBody2D" parent="."]
+position = Vector2(233, 516)
+script = ExtResource("4_25ltr")
+
+[node name="Sprite_Sheep" type="Sprite2D" parent="SHEEP7"]
+position = Vector2(1, 0)
+scale = Vector2(8, 8)
+texture = ExtResource("6_qoh5c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SHEEP7"]
+root_node = NodePath("../../SHEEP7")
+libraries = {
+"": SubResource("AnimationLibrary_hs2q7")
+}
+autoplay = "sheep_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SHEEP7"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_owmx2")
+
+[node name="SHEEP8" type="CharacterBody2D" parent="."]
+position = Vector2(435, 497)
+script = ExtResource("4_25ltr")
+
+[node name="Sprite_Sheep" type="Sprite2D" parent="SHEEP8"]
+position = Vector2(1, 0)
+scale = Vector2(8, 8)
+texture = ExtResource("6_qoh5c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SHEEP8"]
+root_node = NodePath("../../SHEEP8")
+libraries = {
+"": SubResource("AnimationLibrary_hs2q7")
+}
+autoplay = "sheep_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SHEEP8"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_owmx2")
+
+[node name="SHEEP9" type="CharacterBody2D" parent="."]
+position = Vector2(758, 508)
+script = ExtResource("4_25ltr")
+
+[node name="Sprite_Sheep" type="Sprite2D" parent="SHEEP9"]
+position = Vector2(1, 0)
+scale = Vector2(8, 8)
+texture = ExtResource("6_qoh5c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SHEEP9"]
+root_node = NodePath("../../SHEEP9")
+libraries = {
+"": SubResource("AnimationLibrary_hs2q7")
+}
+autoplay = "sheep_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SHEEP9"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_owmx2")
+
+[node name="SHEEP10" type="CharacterBody2D" parent="."]
+position = Vector2(895, 378)
+script = ExtResource("4_25ltr")
+
+[node name="Sprite_Sheep" type="Sprite2D" parent="SHEEP10"]
+position = Vector2(1, 0)
+scale = Vector2(8, 8)
+texture = ExtResource("6_qoh5c")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SHEEP10"]
+root_node = NodePath("../../SHEEP10")
+libraries = {
+"": SubResource("AnimationLibrary_hs2q7")
+}
+autoplay = "sheep_right"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SHEEP10"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_owmx2")
+
+[node name="Upper_Wall" type="StaticBody2D" parent="."]
+position = Vector2(640, 36)
+scale = Vector2(1.39205, 1.0997)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Upper_Wall"]
+scale = Vector2(41.6, 3.28)
+shape = SubResource("RectangleShape2D_vhany")
+
+[node name="Left_Wall" type="StaticBody2D" parent="."]
+position = Vector2(31, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left_Wall"]
+shape = SubResource("RectangleShape2D_gng47")
+
+[node name="Right_Wall" type="StaticBody2D" parent="."]
+position = Vector2(1249, 360)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right_Wall"]
+shape = SubResource("RectangleShape2D_gng47")
+
+[node name="Lower_Wall" type="StaticBody2D" parent="."]
+position = Vector2(640, 664)
+scale = Vector2(1.39205, 1.7797)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lower_Wall"]
+position = Vector2(0, -1.68567)
+scale = Vector2(41.6, 3.28)
+shape = SubResource("RectangleShape2D_vhany")
