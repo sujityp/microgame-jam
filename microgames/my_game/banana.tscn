@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvolp8mvk2afu"]
+
+[ext_resource type="Texture2D" uid="uid://cdj2so7pvl0np" path="res://microgames/my_game/assets/banana.jpg" id="1_sf2ik"]
+[ext_resource type="Script" path="res://microgames/my_game/banana.gd" id="1_w6m6c"]
+[ext_resource type="PackedScene" uid="uid://c2kqi0dwbnqve" path="res://microgames/my_game/explosion2/explosion.tscn" id="2_x1fej"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s4yyj"]
+radius = 51.0098
+
+[node name="bananana" type="CharacterBody2D"]
+script = ExtResource("1_w6m6c")
+explosion = ExtResource("2_x1fej")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_sf2ik")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -11)
+shape = SubResource("CircleShape2D_s4yyj")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

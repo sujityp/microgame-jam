@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://mn8cvhjuwex4"]
+
+[ext_resource type="Texture2D" uid="uid://b1pphcvoilmte" path="res://microgames/fizhing_epic_gaming_game/assets/Hook.png" id="2_1uvip"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1ogsi"]
+
+[node name="Hook" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1ogsi")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+scale = Vector2(2.4, 2.4)
+texture = ExtResource("2_1uvip")

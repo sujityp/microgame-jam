@@ -1,0 +1,197 @@
+[gd_scene load_steps=9 format=3 uid="uid://der7og5wthks5"]
+
+[ext_resource type="Script" path="res://microgames/my_game/my_awesome_super_winner_game.gd" id="1_g6064"]
+[ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/bomb_timer/bomb_timer.tscn" id="2_5oovd"]
+[ext_resource type="Texture2D" uid="uid://trf3wnjcwb5k" path="res://microgames/my_game/assets/Green.png" id="2_cudnf"]
+[ext_resource type="PackedScene" uid="uid://ct44xhx5lhvbg" path="res://microgames/my_game/ninja_frog.tscn" id="3_aei51"]
+[ext_resource type="Texture2D" uid="uid://dv04k207rwp66" path="res://microgames/my_game/assets/Terrain (16x16).png" id="5_dk5ut"]
+[ext_resource type="PackedScene" uid="uid://bvolp8mvk2afu" path="res://microgames/my_game/banana.tscn" id="6_bs4av"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s5o23"]
+texture = ExtResource("5_dk5ut")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+17:0/0 = 0
+18:0/0 = 0
+19:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+19:2/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+17:4/0 = 0
+18:4/0 = 0
+19:4/0 = 0
+20:4/0 = 0
+21:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+19:5/0 = 0
+20:5/0 = 0
+21:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+19:6/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+17:8/0 = 0
+18:8/0 = 0
+19:8/0 = 0
+20:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+19:9/0 = 0
+20:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+18:10/0 = 0
+19:10/0 = 0
+20:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ljrl8"]
+sources/0 = SubResource("TileSetAtlasSource_s5o23")
+
+[node name="MyAwesomeSuperWinnerGame" type="Node2D" node_paths=PackedStringArray("frog", "banana1", "banana2", "banana3", "bomb_timer")]
+script = ExtResource("1_g6064")
+frog = NodePath("NinjaFrog")
+banana1 = NodePath("b1")
+banana2 = NodePath("b2")
+banana3 = NodePath("b3")
+game_name = "My  Awesome Super Winner Game For Winners Game fo the yea Readeitoino"
+game_description = "you win in this game"
+message = "Get the fruit! (you are allergic)"
+control_type = 1
+bomb_timer = NodePath("BombTimer")
+
+[node name="Green" type="Sprite2D" parent="."]
+position = Vector2(651.25, 351.25)
+scale = Vector2(21.0234, 12.5234)
+texture = ExtResource("2_cudnf")
+metadata/_edit_lock_ = true
+
+[node name="BombTimer" parent="." instance=ExtResource("2_5oovd")]
+position = Vector2(146, 693)
+
+[node name="NinjaFrog" parent="." instance=ExtResource("3_aei51")]
+position = Vector2(574, 427)
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(8, 8)
+tile_set = SubResource("TileSet_ljrl8")
+format = 2
+layer_0/tile_data = PackedInt32Array(262144, 458752, 8, 262145, 458752, 8, 262146, 458752, 8, 262147, 458752, 8, 262148, 458752, 8, 262149, 458752, 8, 262150, 458752, 8, 262151, 458752, 8, 262152, 458752, 8, 262153, 458752, 8, 327680, 458752, 9, 327681, 458752, 9, 327682, 458752, 9, 327683, 458752, 9, 327684, 458752, 9, 327685, 458752, 9, 327686, 458752, 9, 327687, 458752, 9, 327688, 458752, 9, 327689, 458752, 9)
+
+[node name="b1" parent="." instance=ExtResource("6_bs4av")]
+position = Vector2(162, -79)
+
+[node name="b2" parent="." instance=ExtResource("6_bs4av")]
+position = Vector2(591, -128)
+
+[node name="b3" parent="." instance=ExtResource("6_bs4av")]
+position = Vector2(1023, -158)

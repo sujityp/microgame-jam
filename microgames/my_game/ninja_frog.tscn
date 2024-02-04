@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct44xhx5lhvbg"]
+
+[ext_resource type="Script" path="res://microgames/my_game/ninja_frog.gd" id="1_gcbpc"]
+[ext_resource type="Texture2D" uid="uid://b3u6nmpxi0dgq" path="res://microgames/my_game/assets/Ninja Frog/Idle (32x32).png" id="1_yjexw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2vlh1"]
+radius = 56.0
+height = 134.0
+
+[node name="NinjaFrog" type="CharacterBody2D"]
+script = ExtResource("1_gcbpc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_yjexw")
+hframes = 11
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 16)
+shape = SubResource("CapsuleShape2D_2vlh1")

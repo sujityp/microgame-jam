@@ -1,14 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://cqiygaoduxj2v"]
+[gd_scene load_steps=27 format=3 uid="uid://cqiygaoduxj2v"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_c1cp2"]
-[ext_resource type="PackedScene" uid="uid://blcsmx6jc2qwq" path="res://microgames/knight_game/knight_game.tscn" id="2_s0n5d"]
+[ext_resource type="PackedScene" uid="uid://s45n2re7v8xh" path="res://microgames/SUBMISSIONS/counting_game - Riley Kay/counting_game/CountingGame.tscn" id="2_rpkjx"]
 [ext_resource type="Texture2D" uid="uid://e4lvvaf2h0ca" path="res://scenes/main/sprites/door_left.png" id="3_1sdq5"]
 [ext_resource type="Texture2D" uid="uid://bjbil5iohc57a" path="res://scenes/main/sprites/room.png" id="3_y1h6j"]
-[ext_resource type="PackedScene" uid="uid://dcxnmb7wyteu0" path="res://microgames/pokemon_game/pokemon_game.tscn" id="3_yc8c6"]
 [ext_resource type="Texture2D" uid="uid://c577jxgsebcnh" path="res://scenes/main/sprites/control.png" id="4_gv218"]
-[ext_resource type="PackedScene" uid="uid://4kma5uui7ppl" path="res://microgames/plank_game/plank_scene.tscn" id="4_uh3ot"]
 [ext_resource type="Texture2D" uid="uid://2p5ui5c44pt4" path="res://scenes/main/sprites/door_right.png" id="4_wfv2r"]
-[ext_resource type="PackedScene" uid="uid://crf6a81dkphuu" path="res://microgames/cycling_game/cycling_game.tscn" id="5_7fcbg"]
 [ext_resource type="FontFile" uid="uid://dxxddb5c1lot" path="res://scenes/main/sprites/font.ttf" id="7_8m45n"]
 [ext_resource type="AudioStream" uid="uid://ctnvpdnbfg33b" path="res://scenes/main/sounds/music_win.wav" id="7_56n1x"]
 [ext_resource type="AudioStream" uid="uid://diam2nhqi5des" path="res://scenes/main/sounds/music_loss.wav" id="8_slq8a"]
@@ -1007,7 +1004,7 @@ _data = {
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_c1cp2")
-microgames = Array[PackedScene]([ExtResource("2_s0n5d"), ExtResource("3_yc8c6"), ExtResource("4_uh3ot"), ExtResource("5_7fcbg")])
+microgames = Array[PackedScene]([ExtResource("2_rpkjx")])
 
 [node name="Room" type="Node2D" parent="."]
 z_index = 4095
@@ -1060,20 +1057,23 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -1280.0
-offset_bottom = -720.0
+offset_right = 3840.0
+offset_bottom = 2160.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ScoreLabel" type="Label" parent="UI/Game"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = 79.0
-offset_right = 1280.0
-offset_bottom = 162.001
+anchors_preset = -1
+anchor_left = -1.50547
+anchor_top = 0.412499
+anchor_right = -1.50547
+anchor_bottom = 0.412499
+offset_left = 7708.01
+offset_top = -1109.0
+offset_right = 8976.01
+offset_bottom = -1026.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "0"
@@ -1081,18 +1081,13 @@ label_settings = SubResource("LabelSettings_xo46v")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="LivesLabel" type="Label" parent="UI/Game"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
 offset_top = 600.0
 offset_right = 1280.0
 offset_bottom = 683.0
-grow_horizontal = 2
-grow_vertical = 0
 text = "Lives: 4"
 label_settings = SubResource("LabelSettings_xo46v")
 horizontal_alignment = 1
@@ -1101,16 +1096,10 @@ autowrap_mode = 1
 
 [node name="MessageLabel" type="Label" parent="UI/Game"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
 offset_left = 136.0
 offset_top = 246.0
 offset_right = 1150.01
 offset_bottom = 329.0
-grow_horizontal = 2
-grow_vertical = 2
 text = "Message!"
 label_settings = SubResource("LabelSettings_xo46v")
 horizontal_alignment = 1

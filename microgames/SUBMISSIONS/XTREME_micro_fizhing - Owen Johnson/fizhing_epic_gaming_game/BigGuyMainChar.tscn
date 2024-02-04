@@ -1,0 +1,139 @@
+[gd_scene load_steps=16 format=3 uid="uid://cnrwb337knpnu"]
+
+[ext_resource type="Script" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/BigGuyMainChar.gd" id="1_rtinm"]
+[ext_resource type="Texture2D" uid="uid://4ghs62rktjph" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/assets/BigMan.png" id="1_tyrgs"]
+[ext_resource type="PackedScene" uid="uid://crl1lg000r8ix" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/explosion2/explosion.tscn" id="2_0pwyx"]
+[ext_resource type="Texture2D" uid="uid://1lwdkhncbkik" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/assets/BigManFish.png" id="2_myguc"]
+[ext_resource type="Texture2D" uid="uid://csb611gcsdlvi" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/assets/BigManDrip.png" id="4_q6to3"]
+[ext_resource type="Texture2D" uid="uid://b1pphcvoilmte" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/assets/Hook.png" id="4_sjrfe"]
+[ext_resource type="Texture2D" uid="uid://g2qklvno6qn4" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/assets/FizhGuides.png" id="5_utsml"]
+[ext_resource type="Texture2D" uid="uid://bff62l2e0yvof" path="res://microgames/SUBMISSIONS/XTREME_micro_fizhing - Owen Johnson/fizhing_epic_gaming_game/assets/BigManSwag.png" id="6_156qh"]
+
+[sub_resource type="Animation" id="Animation_3i5xd"]
+resource_name = "Emote"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_q6to3")]
+}
+
+[sub_resource type="Animation" id="Animation_u2oh6"]
+resource_name = "Fish"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_myguc")]
+}
+
+[sub_resource type="Animation" id="Animation_7lmqx"]
+resource_name = "Normal"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_tyrgs")]
+}
+
+[sub_resource type="Animation" id="Animation_mupd3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_myguc")]
+}
+
+[sub_resource type="Animation" id="Animation_acejo"]
+resource_name = "Swag"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_156qh")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dngxm"]
+_data = {
+"Emote": SubResource("Animation_3i5xd"),
+"Fish": SubResource("Animation_u2oh6"),
+"Normal": SubResource("Animation_7lmqx"),
+"RESET": SubResource("Animation_mupd3"),
+"Swag": SubResource("Animation_acejo")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cxmca"]
+radius = 2.0
+
+[node name="BigGuyMainChar" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_rtinm")
+explosion = ExtResource("2_0pwyx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_myguc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dngxm")
+}
+autoplay = "Swag"
+
+[node name="Hook" type="CharacterBody2D" parent="."]
+position = Vector2(30, 49)
+collision_layer = 2
+
+[node name="Hook" type="Area2D" parent="Hook"]
+collision_layer = 2
+
+[node name="HookHitbox" type="CollisionShape2D" parent="Hook/Hook"]
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_cxmca")
+
+[node name="Sprite2D" type="Sprite2D" parent="Hook/Hook/HookHitbox"]
+texture = ExtResource("4_sjrfe")
+
+[node name="FizhGuides" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.282353)
+position = Vector2(0, 200)
+scale = Vector2(1.15, 0.7)
+texture = ExtResource("5_utsml")
+offset = Vector2(2, 0)
+
+[connection signal="body_entered" from="Hook/Hook" to="." method="_on_hook_body_entered"]
+[connection signal="body_exited" from="Hook/Hook" to="." method="_on_hook_body_exited"]

@@ -51,9 +51,5 @@ func _ready():
 	bomb_timer.activate(game_length)
 	
 func on_bomb_timeout():
-	if lose_on_timeout:
-		lose_game.emit()
-	else:
-		win_game.emit()
 	finish_game.emit()
 	
