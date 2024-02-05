@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cph5ytoy73q4l"]
+
+[ext_resource type="Texture2D" uid="uid://cwxlv2lptys3t" path="res://microgames/SUBMISSIONS/dodging_game - CowSoCool37/dodging_game/assets/triangle.png" id="1_lhdq0"]
+[ext_resource type="PackedScene" uid="uid://dnqhi1la3byuv" path="res://microgames/SUBMISSIONS/dodging_game - CowSoCool37/dodging_game/explosion2/explosion.tscn" id="2_ff70i"]
+[ext_resource type="Script" path="res://microgames/SUBMISSIONS/dodging_game - CowSoCool37/dodging_game/triangle.gd" id="2_synfk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tm8b"]
+size = Vector2(27, 16)
+
+[node name="triangle" type="CharacterBody2D"]
+position = Vector2(640, 360)
+rotation = 1.5708
+script = ExtResource("2_synfk")
+explosion = ExtResource("2_ff70i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.1, 0.15)
+texture = ExtResource("1_lhdq0")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_8tm8b")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
