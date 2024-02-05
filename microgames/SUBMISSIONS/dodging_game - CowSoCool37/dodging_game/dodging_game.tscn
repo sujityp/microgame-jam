@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5a4r3pi0sljj"]
+
+[ext_resource type="Script" path="res://microgames/SUBMISSIONS/dodging_game - CowSoCool37/dodging_game/dodging_game.gd" id="1_v1chv"]
+[ext_resource type="Texture2D" uid="uid://uqdd7gltse2u" path="res://microgames/SUBMISSIONS/dodging_game - CowSoCool37/dodging_game/assets/black.png" id="2_hd7bq"]
+[ext_resource type="PackedScene" uid="uid://cph5ytoy73q4l" path="res://microgames/SUBMISSIONS/dodging_game - CowSoCool37/dodging_game/triangle.tscn" id="2_nct3w"]
+[ext_resource type="PackedScene" uid="uid://ddhoio73023ba" path="res://scenes/bomb_timer/bomb_timer.tscn" id="3_6imrj"]
+[ext_resource type="Texture2D" uid="uid://duwium5i5vgyk" path="res://microgames/SUBMISSIONS/dodging_game - CowSoCool37/dodging_game/assets/square.png" id="4_s3vkh"]
+[ext_resource type="Script" path="res://microgames/SUBMISSIONS/dodging_game - CowSoCool37/dodging_game/diamond.gd" id="5_d6dex"]
+[ext_resource type="AudioStream" uid="uid://d01dns5snryat" path="res://microgames/SUBMISSIONS/dodging_game - CowSoCool37/dodging_game/assets/Sneaky Adventure.wav" id="7_2mgbk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ceoe5"]
+size = Vector2(98.9951, 98.9951)
+
+[node name="DodgingGame" type="Node2D" node_paths=PackedStringArray("diamond", "bomb_timer")]
+script = ExtResource("1_v1chv")
+triangle = ExtResource("2_nct3w")
+diamond = NodePath("Diamond")
+game_name = "Spooky Game"
+creator_name = "Raymond Ke"
+game_description = "Dodge the spooky triangles!"
+game_length = 8
+lose_on_timeout = false
+message = "Dodge the triangles!"
+control_type = 1
+bomb_timer = NodePath("BombTimer")
+
+[node name="Black" type="Sprite2D" parent="."]
+position = Vector2(651.25, 351.25)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_hd7bq")
+metadata/_edit_lock_ = true
+
+[node name="BombTimer" parent="." instance=ExtResource("3_6imrj")]
+position = Vector2(146, 693)
+
+[node name="Diamond" type="CharacterBody2D" parent="."]
+script = ExtResource("5_d6dex")
+
+[node name="Sprite2D" type="Sprite2D" parent="Diamond"]
+position = Vector2(640, 360)
+rotation = 0.785398
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_s3vkh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Diamond"]
+position = Vector2(640, 360)
+rotation = 0.785398
+scale = Vector2(0.2, 0.2)
+shape = SubResource("RectangleShape2D_ceoe5")
+
+[node name="Music" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("7_2mgbk")
+autoplay = true

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d01dns5snryat"
+path="res://.godot/imported/Sneaky Adventure.wav-f9f7c731ba83a2e706e27824a72fbe70.sample"
+
+[deps]
+
+source_file="res://microgames/SUBMISSIONS/dodging_game - CowSoCool37/dodging_game/assets/Sneaky Adventure.wav"
+dest_files=["res://.godot/imported/Sneaky Adventure.wav-f9f7c731ba83a2e706e27824a72fbe70.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
